@@ -3,10 +3,9 @@ import Container from '@mui/material/Container';
 import BasicTable from './Table';
 import Divider from '@mui/material/Divider';
 import TotalViewers from './TotalViewers';
-import AvgViewers from './AvgViewers'
-import TotalTickets from './TotalTickets'
-
-{/*adjust tabs and spacing for better eadability*/}
+import AvgViewers from './AvgViewers';
+import TotalTickets from './TotalTickets';
+import { Animate, Bars, Chart, Dots, Handlers, Labels, Layer, Lines, Pies, Ticks, Transform } from 'rumble-charts';
 
 
 function App() {
@@ -17,25 +16,20 @@ function App() {
       </header>
 
       <div>
-        {/* add container to wrap text*/}
         <Container maxWidth="sm">
-          <h1>A Quick Study of the Rio Olympic Games: 
+          <h1 align="left">A Quick Study of the Rio Olympic Games: 
               A Comparison Between Stadium Attendance 
               & Television Viewership in the United States
           </h1>
         </Container>
       </div>
 
-      {/*add divider for spacing and better visual*/}
       <Divider></Divider>
 
       <div>
-        {/* add container to wrap text*/}
         <Container maxWidth="sm">
           <br></br>
           <h3>Purpose</h3>
-
-            {/*align text to left for better visual appearance; adjust in CSS later*/}
             <p align="left"> 
               This a simple and brief analysis of existing data on 
               the Olympic Games to simply illustrate the differences 
@@ -50,12 +44,10 @@ function App() {
         </Container>
       </div>
 
-      {/* add container*/}
       <div>
         <Container maxWidth="sm">
           <h3>Methodology</h3>
 
-            {/*align text to left for better visual appearance; adjust in CSS later*/} 
             <p align="left">
             The methodology used for the analysis of this data is 
             fairly straightforward. We reviewed data on the the 
@@ -114,12 +106,11 @@ function App() {
       <div>
         <Container maxWidth="md">
           <br></br>
-        <h3>Data</h3>
-        {/* add table and populate w/ data from study */}
+          <h3>Data</h3>
           <BasicTable></BasicTable>
 
           <h6 align='left'> Source: <a href='https://www.statista.com/statistics/589506/olympics-daily-viewership/' target='_blank'>
-            https://www.statista.com/statistics/589506/olympics-daily-viewership/</a>
+            Statista</a>
           </h6>
           <br></br>
         </Container>
@@ -132,28 +123,303 @@ function App() {
           <br></br>
           <h3>Analysis</h3>
             <div align='center'>
-              <TotalViewers></TotalViewers>
+            {/*move to separate component and import*/}
+            {/*data in millions*/}
+            <Chart
+                  series={[
+                    {
+                      data: [
+                        26.49,
+                        19.48,
+                        29.78,
+                        28.86,
+                        33.63,
+                        26.45,
+                        31.22,
+                        24.02,
+                        23.99,
+                        26.75,
+                        24.27,
+                        24.13,
+                        20.68,
+                        21.70,
+                        18.14,
+                        16.85,
+                      ]
+                    }
+                  ]}
+                  viewBox="0 0 300 150"
+                >
+                  <Handlers
+                    distance="x"
+                    onMouseLeave={function noRefCheck(){}}
+                    onMouseMove={function noRefCheck(){}}
+                  >
+                    <Layer
+                      height="68%"
+                      position="middle center"
+                      width="100%"
+                    >
+                      <Bars
+                        barAttributes={{
+                          stroke: '#f5f5f6',
+                          strokeLinejoin: 'round',
+                          strokeWidth: 21,
+                          transform: 'translate(0 16)'
+                        }}
+                        barWidth="0%"
+                        colors={[
+                          '#03a9f4'
+                        ]}
+                        groupPadding="1%"
+                        innerPadding="0%"
+                      />
+                      <Lines
+                        colors={[
+                          '#007696'
+                        ]}
+                        interpolation="cardinal"
+                        lineAttributes={{
+                          strokeLinecap: 'round',
+                          strokeWidth: 5
+                        }}
+                        lineWidth={0}
+                      />
+                      <Dots
+                        className="dots"
+                        colors={[
+                          '#007696'
+                        ]}
+                        dotStyle={{
+                          fillOpacity: 0,
+                          transition: 'all 250ms'
+                        }}
+                      />
+                      <Ticks
+                        axis="x"
+                        labelAttributes={{
+                          y: '2.5em'
+                        }}
+                        labelStyle={{
+                          dominantBaseline: 'text-after-edge',
+                          fill: '#000',
+                          fontFamily: 'sans-serif',
+                          fontSize: 6,
+                          fontWeight: 'normal',
+                          textAnchor: 'start'
+                        }}
+                        
+                        ticks={[
+                          /*comment out for now
+                          {
+                            label: 'Aug. 5',
+                            x: 0
+                          },
+                          
+                          {
+                            label: 'Aug. 6',
+                            x: 1
+                          },
+                          {
+                            label: 'Aug. 7',
+                            x: 2
+                          },
+                          {
+                            label: 'Aug. 8',
+                            x: 3
+                          },
+                          {
+                            label: 'Aug. 9',
+                            x: 4
+                          },
+                          {
+                            label: 'Aug. 10',
+                            x: 5
+                          },
+                          {
+                            label: 'Aug. 11',
+                            x: 6
+                          },
+                          {
+                            label: 'Aug. 12',
+                            x: 7
+                          },
+                          {
+                            label: 'Aug. 13',
+                            x: 8
+                          },
+                          {
+                            label: 'Aug. 14',
+                            x: 9
+                          },
+                          {
+                            label: 'Aug. 15',
+                            x: 10
+                          },
+                          {
+                            label: 'Aug. 16',
+                            x: 11
+                          },
+                          {
+                            label: 'Aug. 17',
+                            x: 12
+                          },
+                          {
+                            label: 'Aug. 18',
+                            x: 13
+                          },
+                          {
+                            label: 'Aug. 19',
+                            x: 14
+                          },
+                           
+                          {
+                            label: 'Aug. 20',
+                            x: 15
+                          }
+                            */
+                        ]}
+                      />
+                    </Layer>
+                  </Handlers>
+                </Chart>
+                <br></br>
+                <br></br>
+                <br></br>   
             </div>
-            <br></br>
-            <br></br>
-            <br></br>
+            <div align='center'>
+              <TotalViewers></TotalViewers>
+              <br></br>
+              <br></br>
+              <br></br>
+            </div>
+
+            { /* create separate component and import*/}
+            { /*pie chart config is as follows:
+            dataset 1 corresponds to outermost circle
+            and represents the highest viewer count. 
+            dataset 2 corresponds to next inner circle
+            and represents the avg. viewer count.
+            dataset 3 corresponds to inner most circle 
+            and represents the lowest daily viewer count*/}
+            <div>
+              <Chart
+                height={400}
+                minY={0}
+                series={[
+                  {
+                    data: [
+                      0,
+                      0,
+                      33.63
+                    ]
+                  },
+                  {
+                    data: [
+                      0,
+                      27.5,
+                      0
+                    ]
+                  },
+                  {
+                    data: [
+                      16.85,
+                      0,
+                      0
+                    ]
+                  }
+                ]}
+                width={600}
+              >
+                <Transform
+                  method={[
+                    'transpose',
+                    'stack'
+                  ]}
+                >
+                  <Pies
+                    combined
+                    innerPadding="3%"
+                    innerRadius="20%"
+                  />
+                  <Labels
+      dotStyle={{
+        dominantBaseline: 'text-after-edge',
+        fontFamily: 'sans-serif',
+        fontSize: '0.65em',
+        textAnchor: 'middle'
+      }}
+      label={function noRefCheck(){}}
+      labelAttributes={{
+        y: -4
+      }}
+    />
+                </Transform>
+              </Chart>
+              {/*remove breaks and adjust spacing in CSS*/}
+              <br></br>
+              <br></br>
+              <br></br>
+            </div>
 
             <div align='center'>
               <AvgViewers></AvgViewers>
             </div>
-            
-            {/*remove excess page breaks*/}
             <br></br>
             <br></br>
             <br></br>
 
         </Container>
+        
       </div>
       <div>
         <Container maxWidth="sm">
           <div align='center'>
-            <TotalTickets></TotalTickets>
           </div>
+
+
+          { /* create separate component and import*/}
+          {/*correct range later so that combined bar
+          corresponds with actual data on ticket sold compared
+          to total available tickets -- current config. is just for
+          illustrative | demo purposes*/}
+          <div>
+              <Chart
+                height={100}
+                series={[
+                  {
+                    data: [
+                      608,
+                    ]
+                  },
+                  {
+                    data: [
+                      60.5,
+                    ]
+                  }
+                ]}
+                width={600}
+              >
+                <Transform
+                  method={[
+                    'stack',
+                    'rotate'
+                  ]}
+                >
+                  <Bars
+                    combined
+                    innerPadding="2%"
+                  />
+                </Transform>
+              </Chart>
+              <br></br>
+              <br></br>
+              <br></br>
+          </div>
+          <div>
+          <TotalTickets></TotalTickets>
+          </div>
+
           <br></br>
           <br></br>
           <br></br>

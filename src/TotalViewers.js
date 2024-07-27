@@ -15,13 +15,15 @@ export default function TotalViewers() {
         </Typography>
         <Typography variant="body2" color="text.secondary">
           Total Combined Viewership from Rio Games in the United States from
-          August 5, 2016 - August 20, 2016
+          August 5, 2016 (Opening Ceremony) - August 20, 2016 (Closing Ceremony)
+          <br></br>
+          <br></br>
+ 
         </Typography>
+            <h6 align="left">Note: Viewership trend from Aug. 5 (Opening Ceremony) 
+              - Aug. 20 represented above
+          </h6>
       </CardContent>
-      <CardActions>
-        <Button size="small"></Button>
-        <Button size="small"></Button>
-      </CardActions>
     </Card>
   );
 }

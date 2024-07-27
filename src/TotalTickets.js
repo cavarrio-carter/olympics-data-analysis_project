@@ -16,6 +16,9 @@ export default function TotalTickets() {
         <Typography variant="body2" color="text.secondary">
           Total Ticket Sales for Rio Games
         </Typography>
+        <h6 align="left">Note: Represented above is the total number
+          of available tickets (6.8m) compared to total tickets sold (6.2m)
+          </h6>
       </CardContent>
     </Card>
   );
