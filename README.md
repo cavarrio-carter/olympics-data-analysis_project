@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Sample Data Analysis and Presentation Templte
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A sample project with single-page site design to demonstrate the effectiveness of visualizing data in various forms using React, Material UI and several charting libraries. May be styled as needed as well as serve as an entry point for a data analysis project. Additional charts and features may be added according to project objectives.
 
 ## Available Scripts
 
