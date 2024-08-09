@@ -2,11 +2,28 @@ import './App.css';
 import Container from '@mui/material/Container';
 import BasicTable from './Table';
 import Divider from '@mui/material/Divider';
+import Grid from '@mui/material/Grid'
 import TotalViewers from './TotalViewers';
 import AvgViewers from './AvgViewers';
 import TotalTickets from './TotalTickets';
 import { Animate, Bars, Chart, Dots, Handlers, Labels, Layer, Lines, Pies, Ticks, Transform } from 'rumble-charts';
 
+/*use imports below for grid when deconstructing into indiv. components*/
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
+
+
+{/*deconstruct and separate sections into individual components and import
+to app.js*/}
 
 function App() {
   return (
@@ -17,8 +34,8 @@ function App() {
 
       <div>
         <Container maxWidth="sm">
-          <h1 align="left">A Quick Study of the Rio Olympic Games: 
-              A Comparison Between Stadium Attendance 
+          <h1 align="left">A Quick Study of the Rio Olympic Games:
+              A Comparison Between Stadium Attendance
               & Television Viewership in the United States
           </h1>
         </Container>
@@ -30,15 +47,15 @@ function App() {
         <Container maxWidth="sm">
           <br></br>
           <h3>Purpose</h3>
-            <p align="left"> 
-              This a simple and brief analysis of existing data on 
-              the Olympic Games to simply illustrate the differences 
-              between stadium attendance and television viewership and 
-              visualize this raw data. 
-            
+            <p align="left">
+              This a simple and brief analysis of existing data on
+              the Olympic Games to simply illustrate the differences
+              between stadium attendance and television viewership and
+              visualize this raw data.
+
               This information may be used to highlight the importance
               for continued focus on the at-home viewer for brands
-              and commercial advertisement. 
+              and commercial advertisement.
             </p>
             <br></br>
         </Container>
@@ -49,46 +66,46 @@ function App() {
           <h3>Methodology</h3>
 
             <p align="left">
-            The methodology used for the analysis of this data is 
-            fairly straightforward. We reviewed data on the the 
-            daily viewership in the United States for the 2016 
-            Olympic Games in Rio. We also reviewed data on the 
+            The methodology used for the analysis of this data is
+            fairly straightforward. We reviewed data on the the
+            daily viewership in the United States for the 2016
+            Olympic Games in Rio. We also reviewed data on the
             total number of ticket sales for the Rio Games.
 
             <br></br>
             <br></br>
-            
+
             The data used for this short study was not taken
             from the most recent Olympic Games: Tokyo 2020.
-            The Tokyo 2020 Games were excluded in lieu of the 
+            The Tokyo 2020 Games were excluded in lieu of the
             Rio Games as any data from the Tokyo 2020 Games
-            would have resulted in a skewed analysis due to 
-            the <a href='https://www.statista.com/chart/32569/tickets-sold-for-summer-olympics-since-1984/' 
-            target ='blank'> COVID pandemic and safety protocols 
+            would have resulted in a skewed analysis due to
+            the <a href='https://www.statista.com/chart/32569/tickets-sold-for-summer-olympics-since-1984/'
+            target ='blank'> COVID pandemic and safety protocols
             set in place for the competing athletes.</a>
 
             <br></br>
             <br></br>
-            An additional note of importance is that this short 
+            An additional note of importance is that this short
             study does not seek to serve as a true comparison of
             attendance as compared to stadium and event attendance
             by spectators -- but is rather illustrative
-            of the type of analysis that could be possible with 
-            complete data on daily attendance for either (a) each 
-            event individually, or (b) the average daily attendance 
+            of the type of analysis that could be possible with
+            complete data on daily attendance for either (a) each
+            event individually, or (b) the average daily attendance
             for all events.
 
             <br></br>
             <br></br>
             As such, the use of this information and visualized
-            data is limited to a rather basic analysis of the 
-            available data. This study may develop into an 
-            ongoing project and be extended to other available data 
-            beyond viewership on the 2016 Rio Games (and games prior to Rio), 
+            data is limited to a rather basic analysis of the
+            available data. This study may develop into an
+            ongoing project and be extended to other available data
+            beyond viewership on the 2016 Rio Games (and games prior to Rio),
             as well as data that may become available on the Paris 2024 games.
             Additional insight into available data (providing a deeper
             and more complex analysis examining the relationships between various
-            datasets for more practical purposes) may also continue to be provided 
+            datasets for more practical purposes) may also continue to be provided
             for this project.
 
             <br></br>
@@ -103,6 +120,7 @@ function App() {
 
       <Divider variant='middle'></Divider>
 
+      {/*table begin*/}
       <div>
         <Container maxWidth="md">
           <br></br>
@@ -115,8 +133,13 @@ function App() {
           <br></br>
         </Container>
       </div>
-          
+
+    {/*table end -- indiv component and mobile view to expand
+    viewable media type -- not necessary but contruct anyway*/}
+
       <Divider variant='middle'></Divider>
+
+      {/*bar chart begin*/}
 
       <div>
       <Container maxWidth="md">
@@ -208,14 +231,14 @@ function App() {
                           fontWeight: 'normal',
                           textAnchor: 'start'
                         }}
-                        
+
                         ticks={[
                           /*comment out for now
                           {
                             label: 'Aug. 5',
                             x: 0
                           },
-                          
+
                           {
                             label: 'Aug. 6',
                             x: 1
@@ -272,7 +295,7 @@ function App() {
                             label: 'Aug. 19',
                             x: 14
                           },
-                           
+
                           {
                             label: 'Aug. 20',
                             x: 15
@@ -285,7 +308,7 @@ function App() {
                 </Chart>
                 <br></br>
                 <br></br>
-                <br></br>   
+                <br></br>
             </div>
             <div align='center'>
               <TotalViewers></TotalViewers>
@@ -294,15 +317,27 @@ function App() {
               <br></br>
             </div>
 
+{/*bar chart end -- indiv. component, note: this chart is displaying
+fine on mobile (okay as this is an example for live presentation
+purposes (which would typically be presented from desktop or laptop;
+but still create indiv. component for */}
+
             { /* create separate component and import*/}
             { /*pie chart config is as follows:
             dataset 1 corresponds to outermost circle
-            and represents the highest viewer count. 
+            and represents the highest viewer count.
             dataset 2 corresponds to next inner circle
             and represents the avg. viewer count.
-            dataset 3 corresponds to inner most circle 
+            dataset 3 corresponds to inner most circle
             and represents the lowest daily viewer count*/}
+
+        {/*pie chart begin -- indiv. component*/}
+        {/*remove elevation prop after const indiv. component for chart*/}
             <div>
+            <Box sx={{ flexGrow: 1 }}>
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                  <Item elevation={0}>
               <Chart
                 height={400}
                 minY={0}
@@ -360,6 +395,10 @@ function App() {
               <br></br>
               <br></br>
               <br></br>
+              </Item>
+            </Grid>
+          </Grid>
+        </Box>
             </div>
 
             <div align='center'>
@@ -370,9 +409,12 @@ function App() {
             <br></br>
 
         </Container>
-        
+
       </div>
       <div>
+
+      {/*why is this here? -- likely able to delete without
+      error but leave in for now*/}
         <Container maxWidth="sm">
           <div align='center'>
           </div>
@@ -383,7 +425,15 @@ function App() {
           corresponds with actual data on ticket sold compared
           to total available tickets -- current config. is just for
           illustrative | demo purposes*/}
+
+          {/*single horizontal bar begin*/}
+          {/*remove elevation prop after const indiv. component*/}
           <div>
+        <Container maxWidth="lg">
+          <Box sx={{ flexGrow: 1 }}>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <Item elevation={0}>
               <Chart
                 height={100}
                 series={[
@@ -398,7 +448,8 @@ function App() {
                     ]
                   }
                 ]}
-                width={600}
+
+                width={300}
               >
                 <Transform
                   method={[
@@ -415,7 +466,13 @@ function App() {
               <br></br>
               <br></br>
               <br></br>
+              </Item>
+            </Grid>
+          </Grid>
+        </Box>
+      </Container>
           </div>
+
           <div>
           <TotalTickets></TotalTickets>
           </div>

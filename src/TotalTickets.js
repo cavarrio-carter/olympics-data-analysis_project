@@ -6,9 +6,11 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
+{/*add grid here*/}
+
 export default function TotalTickets() {
   return (
-    <Card sx={{ maxWidth: 500 }}>
+    <Card elevation={0} sx={{ maxWidth: 500 }}>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           6.2 million
