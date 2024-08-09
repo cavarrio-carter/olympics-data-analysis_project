@@ -135,7 +135,8 @@ function App() {
       </div>
 
     {/*table end -- indiv component and mobile view to expand
-    viewable media type -- not necessary but contruct anyway*/}
+    viewable media type -- yikes... :/ the 5 stages: it appears you're
+    at stage no. 2 -- good luck :)*/}
 
       <Divider variant='middle'></Divider>
 
